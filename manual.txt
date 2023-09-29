@@ -1,0 +1,22 @@
+win::ins install Nvidia Game ready driver
+win::run wsl --install
+win::ins reboot 
+win::ins open wsl
+set username 
+set password
+wsl::run touch /home/srikrishna/.hushlogin
+wsl::run sudo apt update
+wsl::run sudo apt upgrade
+win::ins install cuda 11.8
+win::ins install cudnn 8.6.0
+wsl::run sudo apt install python3-pip
+wsl::run pip install tensorflow[and-cuda]
+wsl::run python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+wsl:run sudo apt-key del 7fa2af80
+wsl:run wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+wsl:run sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wsl:run wget https://developer.download.nvidia.com/compute/cuda/12.2.2/local_installers/cuda-repo-wsl-ubuntu-12-2-local_12.2.2-1_amd64.deb
+wsl:run sudo dpkg -i cuda-repo-wsl-ubuntu-12-2-local_12.2.2-1_amd64.deb
+wsl:run sudo cp /var/cuda-repo-wsl-ubuntu-12-2-local/cuda-*-keyring.gpg /usr/share/keyrings/
+wsl:run sudo apt-get update
+wsl:run sudo apt-get -y install cuda
