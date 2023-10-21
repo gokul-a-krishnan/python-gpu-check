@@ -8,7 +8,7 @@ from tensorflow.keras.optimizers import SGD
 from tensorflow.keras.utils import to_categorical
 from tensorflow.test import is_gpu_available
 from tensorflow.config import list_physical_devices
-from tensorflow.keras.saving import save_model
+
 print(is_gpu_available(cuda_only=True, min_cuda_compute_capability=None))
 print(list_physical_devices('GPU'))
 
@@ -47,7 +47,6 @@ def run_test():
     train_x, test_x = prep_pixels(train_x, test_x)
     model = define_model()
     model.fit(train_x, train_y, epochs=5, batch_size=64, validation_data=(test_x, test_y))
-    save_model(model, "model")
 
 
 run_test()
