@@ -1,3 +1,6 @@
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 from tensorflow.keras.datasets import cifar10
 from tensorflow.keras.layers import Conv2D
 from tensorflow.keras.layers import Dense
