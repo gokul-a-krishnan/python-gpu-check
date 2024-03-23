@@ -114,4 +114,3 @@ for t in range(epochs):
     end = time()
     print(f"Time elapsed: {(end - start):>0.1f} secs \n")
 print("Done!")
-l̥
